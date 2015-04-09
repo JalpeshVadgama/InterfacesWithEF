@@ -1,4 +1,6 @@
-﻿namespace InterfaceWithEF
+﻿using System;
+
+namespace InterfaceWithEF
 {
     class Program
     {
@@ -17,7 +19,20 @@
                 customerContext.Customers.Add(customer);
                 customerContext.AnotherCustomers.Add(anotherCustomer);
                 customerContext.SaveChanges();
+                Console.WriteLine("Both customer saved");
+
+                foreach (var c in customerContext.Customers)
+                {
+                    Console.WriteLine(c.Id);
+                }
+                foreach (var a in customerContext.AnotherCustomers)
+                {
+                    Console.WriteLine(a.Id);
+                }
             }
+
+
+
         }
     }
 }
